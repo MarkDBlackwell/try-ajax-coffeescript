@@ -5,10 +5,48 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="UTF-8"></script>
+<!--
+    <script type="text/javascript"charset="UTF-8">
+      $(function () {
+        $('#alert').click(function () {
+          alert('Hello, world!');
+          return false;
+        })
+      });
+    </script>
+-->
+
+<!--Need this next line?
+    <%= javascript_include_tag :defaults %>
+-->
+
+<div id="things" data-remote="true">old</div>
+
+    <script type="text/javascript"charset="UTF-8">
+      $(function () {
+        $('#alert').click(function () {
+          alert(this.getAttribute('data-message'));
+          return false;
+        })
+      });
+    </script>
+
+
 </head>
 <body>
 
+<!--
+<h1><a href="#" onclick="alert('Hello world!'); return false;">Click Here</a></h1>
+<h1><a href="#" id="alert">Click Here</a></h1>
+-->
+
+<h1><a href="#" id="alert" data-message="Hello from UJS">Click Here</a></h1>
+
+<div data-pjax-container>
 <%= yield %>
+</div>
 
 </body>
 </html>

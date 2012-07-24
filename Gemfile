@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'pjax_rails'
+# gem 'rack-pjax'
 gem 'thin'
 
 gem 'rails', '3.2.6'
